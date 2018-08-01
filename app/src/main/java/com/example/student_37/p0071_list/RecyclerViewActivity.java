@@ -27,8 +27,9 @@ public class RecyclerViewActivity extends Activity {
             items.add("Элемент #"+i);
         }
 
-        RecyclerAdapter adapter = new RecyclerAdapter(items);
+        RecyclerAdapter adapter = new RecyclerAdapter();
         recyclerView.setAdapter(adapter);
+        adapter.setItems(items);
 
         adapter.setOnRecyclerClicked(new RecyclerAdapter.OnRecyclerClicked() {
             @Override

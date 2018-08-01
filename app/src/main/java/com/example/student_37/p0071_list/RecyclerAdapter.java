@@ -7,20 +7,26 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerViewHolder> {
 
-    private List<String> items;
+    private List<String> items = new ArrayList<String>();
     private OnRecyclerClicked onRecyclerClicked= null;
 
     public void setOnRecyclerClicked(final OnRecyclerClicked onRecyclerClicked) {
         this.onRecyclerClicked = onRecyclerClicked;
     }
 
-    public RecyclerAdapter(List<String> items){
+    public RecyclerAdapter(){
         super();
-        this.items = items;
+    }
+
+    void setItems(List<String> newItems){
+        items.clear();
+        items.addAll(newItems);
+        notifyDataSetChanged();
     }
 
     @NonNull
